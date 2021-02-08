@@ -1,0 +1,44 @@
+version: '3'
+services:
+  mongo:
+    image: "mongo:latest"
+  redis:
+    image: "redis:alpine"
+  backend:
+    build:
+      context: .
+      dockerfile: ./docker/backend/Dockerfile
+    environment: 
+      - APP_ENV=dev
+    depends_on: 
+      - mongo
+      - redis
+    ports: 
+      - "4001:4001"
+    volumes: 
+      - .:/code
+  frontend:
+    build: 
+      context: .
+      dockerfile: ./docker/frontend/Dockerfile
+    environment: 
+      - APP_ENV=dev
+      - APP_BACKEND_URL=backend:4001
+      - APP_FRONTEND_PORT=4002
+    depends_on: 
+      - backend
+    ports: 
+      - "4002:4002"
+    volumes: 
+      - ./frontend:/app/src
+  worker:
+    build: 
+      context: .
+      dockerfile: ./docker/worker/Dockerfile
+    environment: 
+      - APP_ENV=dev
+    depends_on: 
+      - mongo
+      - redis
+    volumes: 
+      - .:/code
