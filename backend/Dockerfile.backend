@@ -1,0 +1,9 @@
+# docker/backend/Dockerfile
+
+FROM python:stretch
+COPY requirements.txt /tmp/
+CMD pip install -U pip
+RUN pip install -r /tmp/requirements.txt
+ADD ./backend /code
+WORKDIR /code
+CMD gunicorn -w 1 -b 0.0.0.0:4001 --worker-class gevent backend.server:app

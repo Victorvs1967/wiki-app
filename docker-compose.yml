@@ -7,7 +7,7 @@ services:
   backend:
     build:
       context: .
-      dockerfile: ./docker/backend/Dockerfile
+      dockerfile: ./docker/backend/Dockerfile.backend
     environment: 
       - APP_ENV=dev
     depends_on: 
@@ -16,7 +16,7 @@ services:
     ports: 
       - "4001:4001"
     volumes: 
-      - .:/code
+      - ./backend:/code
   frontend:
     build: 
       context: .
@@ -34,11 +34,11 @@ services:
   worker:
     build: 
       context: .
-      dockerfile: ./docker/worker/Dockerfile
+      dockerfile: ./docker/backend/Dockerfile.worker
     environment: 
       - APP_ENV=dev
     depends_on: 
       - mongo
       - redis
     volumes: 
-      - .:/code
+      - ./backend:/code
