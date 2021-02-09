@@ -1,13 +1,17 @@
 {
   "name": "frontend",
   "version": "1.0.0",
-  "description": "",
+  "description": "wiki-app",
   "main": "index.js",
   "scripts": {
         "build": "echo 'build'",
         "start": "node index.js",
         "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Victorvs1967/wiki-app.git"
+  },
+  "author": "victor",
   "license": "ISC"
 }
