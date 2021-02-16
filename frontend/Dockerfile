@@ -1,9 +1,9 @@
 # docker/frontend/Dockerfile
 
-FROM node:carbon
+FROM node:alpine
 
 WORKDIR /app
-COPY ./docker/frontend/package*.json ./
+COPY package*.json ./
 RUN npm install
 ENV PATH /app/node_modules/.bin:$PATH
 
