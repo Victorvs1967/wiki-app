@@ -1,23 +1,22 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import CardPage from './cardPage';
 
-const App = () => {
-    const headerStyle = {
-        marginTop: "4rem",
-        fontFamily: "sans-serif",
-        fontSize: 48,
-        textAlign: "center"
-    };
-    const paragraphStyle = {
-        fontFamily: "sans-serif",
-        fontSize: 18,
-        textAlign: "center"
-    };
+const App = ({ pageType }) => {
+
     return (
-        <>
-            <h1 style={headerStyle}>Hello, World!</h1>
-            <p style={paragraphStyle}>Welcome to the fullstack application!</p>
-        </>
-    );
+        <div>
+            { pageType === 'card' && <CardPage /> }
+        </div>
+        );
 };
 
-export default App;
+const mapStateToProps = state => {
+    const { page } = state;
+    const { type } = page;
+    return {
+        pageType: type
+    };
+};
+
+export default connect(mapStateToProps)(App);
