@@ -1,6 +1,6 @@
 const path = require("path");
 
-clientConfig = {
+const clientConfig = {
   mode: "development",
   entry: {
     client: ["./src/client.js", "@babel/polyfill"]
@@ -11,12 +11,12 @@ clientConfig = {
   },
   module: {
     rules: [
-        { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" }
+      { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" }
     ]
- }
+  }
 };
 
-serverConfig = {
+const serverConfig = {
   mode: "development",
   target: "node",
   entry: {
@@ -28,9 +28,9 @@ serverConfig = {
   },
   module: {
     rules: [
-        { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" }
+      { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" }
     ]
- }
+  }
 };
 
 module.exports = [clientConfig, serverConfig];
