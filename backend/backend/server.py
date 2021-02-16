@@ -1,9 +1,9 @@
-import os.path
-import flask
+import os
+from flask import Flask
 import flask_cors
 
 
-class WikiApp(flask.Flask):
+class WikiApp(Flask):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

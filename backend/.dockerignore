@@ -2,6 +2,7 @@
 .gitignore
 .logs
 .pytest_cache
+frontend
 tests
 venv
 __pycache__
