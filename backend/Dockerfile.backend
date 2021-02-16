@@ -1,4 +1,4 @@
-# docker/backend/Dockerfile
+# backend/Dockerfile.backend
 
 FROM python:stretch
 COPY requirements.txt /tmp/

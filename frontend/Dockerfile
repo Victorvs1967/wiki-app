@@ -1,4 +1,4 @@
-# docker/frontend/Dockerfile
+# frontend/Dockerfile
 
 FROM node:alpine
 

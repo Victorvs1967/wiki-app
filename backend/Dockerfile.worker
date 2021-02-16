@@ -1,3 +1,5 @@
+# worker/Dockerfile.worker
+
 FROM python:stretch
 COPY requirements.txt /tmp/
 CMD pip install -U pip
