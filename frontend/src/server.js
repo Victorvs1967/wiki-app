@@ -7,7 +7,7 @@ import configureStore from './redux/configureStore';
 
 const hasPromises = state => state.promises.lenght > 0;
 
-const render = async (initialState, url) {
+const render = async (initialState, url) => {
     const store = configureStore(initialState);
     store.dispatch(navigate(url));
 

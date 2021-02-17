@@ -7,11 +7,11 @@ class Card extends Component {
     }
 
     render() {
-        const { name, html } = this.props;
+        const { name, markdown } = this.props;
         return (
             <div>
                 <h1>{ name }</h1>
-                <div dangerouslySetInnerHTML={{__html: html}}></div>
+                <div dangerouslySetInnerHTML={{__html: markdown}}></div>
             </div>
         );
     }
