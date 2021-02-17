@@ -14,8 +14,8 @@ class Card(object):
 class CardDAO(object, metaclass=abc.ABCMeta):
 
     @abc.abstractmethod
-    def create(self, card: Card) -> Card:
-    # def create(self, card: Card):
+    def create(self, card: Card):
+    # def create(self, card: Card) -> Card:
         pass
 
     @abc.abstractmethod

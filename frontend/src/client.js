@@ -3,23 +3,16 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import App from './components/app';
 import configureStore from './redux/configureStore';
+import { navigate } from './redux/actions';
 
-let initialState = {
+let initState = {
     page: {
         type: 'home'
     }
 };
-const m = /^\/card\/([^\/]+)$/.exec(location.pathname);
-if (m !== null) {
-    initialState = {
-        page: {
-            type: 'card',
-            cardSlug: m[1]
-        }
-    };
-}
 
-const store = configureStore(initialState);
+const store = configureStore(initState);
+store.dispatch(navigate(location));
 
 ReactDOM.render(
     <Provider store={ store }>

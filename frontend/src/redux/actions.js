@@ -1,5 +1,6 @@
 export const START_FETCHING_CARD = 'START_FETCHING_CARD';
 export const FINISH_FETCHING_CARD = 'FINISH_FETCHING_CARD';
+export const NAVIGATE = 'NAVIGATE';
 
 const startFetchingCard = () => {
     return {
@@ -35,4 +36,17 @@ export const fetchCardIfNeeded = () => {
             return dispatch(fetchCard());
         };
     }
+};
+
+export const navigate = (link, dontPushState) => {
+    // if (!isServerSide() && !dontPushState) {
+    //     history.pushState({
+    //         pathname: link.pathname,
+    //         href: link.href
+    //     }, '', link.href);
+    // }
+    return {
+        type: NAVIGATE,
+        path: link.pathname
+    };
 };

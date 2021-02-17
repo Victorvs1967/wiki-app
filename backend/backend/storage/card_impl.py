@@ -40,7 +40,7 @@ class MongoCardDAO(CardDAO):
 
     def update(self, card: Card):
         card_id = bson.ObjectId(card.id)
-        self.collection.update_one({'_id': card_id}, {'$set': self.toBson(card)})
+        self.collection.update_one({'_id': card_id}, {'$set': self.to_bson(card)})
         return card
         
     def get_all(self):

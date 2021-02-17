@@ -1,17 +1,27 @@
 import React, { Component } from 'react';
 
+import { navigate } from '../redux/actions';
+
 class Card extends Component {
 
     componentDidMount() {
         document.title = this.props.name;
     }
 
+    navigate(event) {
+        if (event.target.tagName === 'A' && event.target.hostname === window.location.hostname) {
+            event.preventDefault();
+            this.props.dispatch(navigate(event.target));
+        }
+    }
+
     render() {
-        const { name, markdown } = this.props;
+        const { name, html } = this.props;
         return (
             <div>
                 <h1>{ name }</h1>
-                <div dangerouslySetInnerHTML={{__html: markdown}}></div>
+                <div dangerouslySetInnerHTML={{__html: html}}
+                    onClick={event => this.navigate(event)} />
             </div>
         );
     }

@@ -1,7 +1,23 @@
 import { 
     START_FETCHING_CARD,
-    FINISH_FETCHING_CARD
+    FINISH_FETCHING_CARD,
+    NAVIGATE
 } from './actions';
+
+const navigate = (state, path) => {
+    const m = /^\/card\/([^/]+)$/.exec(path);
+    if (m !== null) {
+        return {
+            ...state,
+            page: {
+                type: 'card',
+                cardSlug: m[1],
+                isFetching: true
+            }
+        };
+    }
+    return state;
+};
 
 const root = (state = {}, action) => {
     switch (action.type) {
@@ -22,6 +38,8 @@ const root = (state = {}, action) => {
                     cardData: action.cardData
                 }
             };
+        case NAVIGATE:
+            return navigate(state, action.path);
     }
     return state;
 };
