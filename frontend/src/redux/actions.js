@@ -38,13 +38,15 @@ export const fetchCardIfNeeded = () => {
     }
 };
 
-export const navigate = (link, dontPushState) => {
-    // if (!isServerSide() && !dontPushState) {
-    //     history.pushState({
-    //         pathname: link.pathname,
-    //         href: link.href
-    //     }, '', link.href);
-    // }
+export const navigate = link => {
+// export const navigate = (link, dontPushState) => {
+//     if (!isServerSide() && !dontPushState) {
+//         history.pushState({
+//             pathname: link.pathname,
+//             href: link.href
+//         }, '', link.href);
+//     }
+    history.pushState(null, '', link.href);
     return {
         type: NAVIGATE,
         path: link.pathname

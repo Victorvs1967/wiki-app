@@ -19,13 +19,13 @@ create_or_update(Card(
         slug='helloworld',
         name='Hello, World!',
         markdown="""
-    This is hello-world page. Ir can't really compete with the [demo page](demo).
-    """))
+This is hello-world page. It can't really compete with the [demo page](demo).
+"""))
 
 create_or_update(Card(
         slug='demo',
         name='Demo Card!',
         markdown="""
-    Hi there, gay. You've probably got here from awkard ["Hello, World" card](helloworld).
-    Well, **good news**! Finally you are looking at a **realy cool card**!
-    """))
+Hi there, gay. You've probably got here from awkard ["Hello, World" card](helloworld).
+Well, **good news**! Finally you are looking at a **realy cool card**!
+"""))

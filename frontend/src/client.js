@@ -5,13 +5,13 @@ import App from './components/app';
 import configureStore from './redux/configureStore';
 import { navigate } from './redux/actions';
 
-let initState = {
+let initialState = {
     page: {
         type: 'home'
     }
 };
 
-const store = configureStore(initState);
+const store = configureStore(initialState);
 store.dispatch(navigate(location));
 
 ReactDOM.render(
