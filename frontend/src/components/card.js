@@ -1,30 +1,26 @@
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
 
 import { navigate } from '../redux/actions';
 
-class Card extends Component {
+const Card = ({ name, html, dispatch }) => {
 
-    componentDidMount() {
-        document.title = this.props.name;
-    }
+    useEffect(() => document.title = name);
 
-    navigate(event) {
+    const _navigate = event => {
         if (event.target.tagName === 'A' && event.target.hostname === window.location.hostname) {
             event.preventDefault();
-            this.props.dispatch(navigate(event.target));
+            dispatch(navigate(event.target));
         }
-    }
+    };
 
-    render() {
-        const { name, html } = this.props;
-        return (
-            <div>
-                <h1>{ name }</h1>
-                <div dangerouslySetInnerHTML={{__html: html}}
-                    onClick={event => this.navigate(event)} />
+    return (
+        <div>
+            <h1>{ name }</h1>
+            <div dangerouslySetInnerHTML={{__html: html}}
+                 onClick={ event => _navigate(event) }>
             </div>
-        );
-    }
-}
+        </div>
+    );
+};
 
 export default Card;
