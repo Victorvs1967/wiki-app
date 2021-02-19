@@ -1,4 +1,4 @@
-const template = (title) => (`
+const template = (title, initialState, content) => (`
     <!DOCUMENT html>
     <html lang="en>
         <head>
@@ -6,7 +6,10 @@ const template = (title) => (`
             <title>${title}</title>
         </head>
         <body>
-            <div id="app"></div>
+            <div id="app">${content}</div>
+            <script>
+                window.__STATE__ = ${JSON.stringify(initialState)}
+            </script>
             <script src="/dist/client.js"></script>
         </body>
     </html>

@@ -1,4 +1,5 @@
 const path = require("path");
+const webpack = require('webpack');
 
 const clientConfig = {
   mode: "development",
@@ -13,7 +14,12 @@ const clientConfig = {
     rules: [
       { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" }
     ]
-  }
+  },
+  plugins: [
+    new webpack.DefinePlugin({
+        'process.env.APP_ENV': {}
+    })
+  ]
 };
 
 const serverConfig = {
@@ -30,7 +36,12 @@ const serverConfig = {
     rules: [
       { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" }
     ]
-  }
+  },
+  plugins: [
+    new webpack.DefinePlugin({
+        'process.env.APP_ENV': {}
+    })
+  ]
 };
 
 module.exports = [clientConfig, serverConfig];

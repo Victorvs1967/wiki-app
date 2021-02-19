@@ -7,7 +7,9 @@ import Card from './card';
 
 const CardPage = ({ isFetching, cardData, dispatch }) => {
 
-    useEffect(() => dispatch(fetchCardIfNeeded()), []);
+    useEffect(() => {
+        dispatch(fetchCardIfNeeded());
+    }, []);
 
     return (
         <div>

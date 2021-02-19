@@ -1,7 +1,9 @@
 import { 
     START_FETCHING_CARD,
     FINISH_FETCHING_CARD,
-    NAVIGATE
+    NAVIGATE,
+    ADD_PROMISE,
+    REMOVE_PROMISE
 } from './actions';
 
 const navigate = (state, path) => {
@@ -40,6 +42,16 @@ const root = (state = {}, action) => {
             };
         case NAVIGATE:
             return navigate(state, action.path);
+        case ADD_PROMISE:
+            return {
+                ...state,
+                promises: [...state.promises, action.promise]
+            };
+        case REMOVE_PROMISE:
+            return {
+                ...state,
+                promises: state.promises.filter(p => p !== action.promise)
+            };
     }
     return state;
 };
