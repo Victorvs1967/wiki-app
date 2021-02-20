@@ -31,7 +31,7 @@ const fetchCard = () => {
     return (dispatch, getState) => {
         dispatch(startFetchingCard());
         let url = apiPath() + '/card/' + getState().page.cardSlug;
-        let promise = fetch(url)
+        let promise = fetch(url, {}, dispatch, getState)
             .then(response => response.json())
             .then(json => {
                 dispatch(finishFetchingCard(json));
