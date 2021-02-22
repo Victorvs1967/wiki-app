@@ -21,7 +21,7 @@ const finishFetchingCard = json => {
 };
 
 const apiPath = () => {
-    if (!isServerSide()) {
+    if (isServerSide()) {
         return 'http://backend:4001/api/v1';
     }
     return 'http://localhost:4001/api/v1';
