@@ -15,27 +15,22 @@ class CardDAO(object, metaclass=abc.ABCMeta):
 
     @abc.abstractmethod
     def create(self, card: Card):
-    # def create(self, card: Card) -> Card:
         pass
 
     @abc.abstractmethod
     def update(self, card: Card):
-    # def update(self, card: Card) -> Card:
         pass
 
     @abc.abstractmethod
     def get_all(self):
-    # def get_all(self) -> Iterable[Card]:
         pass
 
     @abc.abstractmethod
     def get_by_id(self, card_id: str):
-    # def get_by_id(self, card_id: str) -> Card:
         pass
 
     @abc.abstractmethod
     def get_by_slug(self, slug: str):
-    # def get_by_slug(self, slug: str) -> Card:
         pass
 
 class CardNotFound(Exception):

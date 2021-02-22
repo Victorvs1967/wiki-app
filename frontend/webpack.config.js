@@ -39,7 +39,7 @@ const serverConfig = {
   },
   plugins: [
     new webpack.DefinePlugin({
-        'process.env': {APP_ENV: JSON.stringify('dev')}
+        'process.env': {APP_ENV: JSON.stringify('dev'), APP_FRONTEND_PORT: 4002, APP_BACKEND_URL: JSON.stringify('backend:4001')}
     })
   ]
 };
