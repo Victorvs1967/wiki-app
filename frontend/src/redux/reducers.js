@@ -23,6 +23,16 @@ const navigate = (state, path) => {
 
 const root = (state = {}, action) => {
     switch (action.type) {
+        case ADD_PROMISE:
+            return {
+                ...state,
+                promises: [...state.promises, action.promise]
+            };
+        case REMOVE_PROMISE:
+            return {
+                ...state,
+                promises: state.promises.filter(p => p !== action.promise)
+            };
         case START_FETCHING_CARD:
             return {
                 ...state,
@@ -42,16 +52,6 @@ const root = (state = {}, action) => {
             };
         case NAVIGATE:
             return navigate(state, action.path);
-        case ADD_PROMISE:
-            return {
-                ...state,
-                promises: [...state.promises, action.promise]
-            };
-        case REMOVE_PROMISE:
-            return {
-                ...state,
-                promises: state.promises.filter(p => p !== action.promise)
-            };
     }
     return state;
 };

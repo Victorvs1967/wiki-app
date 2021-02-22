@@ -17,8 +17,8 @@ app.get('*', (req, res) => {
         const { content, prelodedState } = result;
         const response = template('Hello, World!', prelodedState, content)
         res.send(response);
-    }, reasone => {
-        console.log(reasone);
+    }, reason => {
+        console.log(reason);
         res.status(500).send('Server side rendering failed!');
     });
 });

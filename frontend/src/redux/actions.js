@@ -27,11 +27,21 @@ const apiPath = () => {
     return 'http://localhost:4001/api/v1';
 };
 
+const addPromise = promise => ({
+    type: ADD_PROMISE,
+    promise: promise
+});
+
+const removePromise = promise => ({
+    type: REMOVE_PROMISE,
+    promise: promise
+});
+
 const fetchCard = () => {
     return (dispatch, getState) => {
         dispatch(startFetchingCard());
         let url = apiPath() + '/card/' + getState().page.cardSlug;
-        let promise = fetch(url, {}, dispatch, getState)
+        let promise = fetch(url)
             .then(response => response.json())
             .then(json => {
                 dispatch(finishFetchingCard(json));
@@ -62,13 +72,3 @@ export const navigate = (link, dontPushState) => {
         path: link.pathname
     };
 };
-
-const addPromise = promise => ({
-    type: ADD_PROMISE,
-    promise: promise
-});
-
-const removePromise = promise => ({
-    type: REMOVE_PROMISE,
-    promise: promise
-});
